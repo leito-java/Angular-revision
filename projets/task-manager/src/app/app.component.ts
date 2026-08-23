@@ -33,6 +33,10 @@ export class AppComponent {
   // Filtre actuellement sélectionné par l'utilisateur.
   protected readonly currentFilter = signal<TaskFilter>('all');
 
+  // Statistiques dérivées : elles se recalculent automatiquement lorsque tasks change.
+  protected readonly completedTaskCount = computed(() => this.tasks().filter((task) => task.completed).length);
+  protected readonly remainingTaskCount = computed(() => this.tasks().length - this.completedTaskCount());
+
   // Liste dérivée : computed la recalcule quand tasks ou currentFilter change.
   protected readonly filteredTasks = computed(() => {
     const filter = this.currentFilter();

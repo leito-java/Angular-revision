@@ -25,6 +25,8 @@ Utilisez la [fiche de progression](parcours-debutant/PROGRESSION.md) pour vérif
 
 Le dossier [`projets/task-manager`](projets/task-manager/README.md) contient le résultat complet. Un débutant ne doit pas commencer par mémoriser tout son code : il le découvre progressivement à travers le parcours.
 
+La [feuille de route du Task Manager](ROADMAP.md) conserve les prochaines évolutions prévues, du routing Angular jusqu'à une éventuelle version SaaS.
+
 Les six premières versions exécutables se trouvent dans l'[atelier débutant](projets/atelier-debutant/README.md).
 
 ## Parcours conseillé

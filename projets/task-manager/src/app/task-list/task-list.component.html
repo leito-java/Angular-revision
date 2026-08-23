@@ -7,6 +7,10 @@
     </li>
   } @empty {
     <!-- @empty est rendu quand la liste ne contient aucune tâche. -->
-    <li>Aucune tâche. Ajoutez-en une !</li>
+    <li class="empty-state">
+      <span aria-hidden="true">✓</span>
+      <strong>Aucune tâche ici</strong>
+      <p>Ajoutez une tâche ou choisissez un autre filtre.</p>
+    </li>
   }
 </ul>

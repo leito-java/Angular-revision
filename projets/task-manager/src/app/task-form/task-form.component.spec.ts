@@ -33,6 +33,18 @@ describe('TaskFormComponent', () => {
     expect(fixture.nativeElement.textContent).toContain('au moins 3 caractères');
   });
 
+  it('affiche une erreur et ne sauvegarde pas après une soumission invalide', () => {
+    let savedTask: TaskDraft | undefined;
+    fixture.componentInstance.taskSaved.subscribe((task) => savedTask = task);
+    const form: HTMLFormElement = fixture.nativeElement.querySelector('form');
+
+    form.dispatchEvent(new Event('submit'));
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.textContent).toContain('Le titre est obligatoire');
+    expect(savedTask).toBeUndefined();
+  });
+
   it('émet les données lorsque le formulaire est valide', () => {
     let savedTask: TaskDraft | undefined;
     fixture.componentInstance.taskSaved.subscribe((task) => savedTask = task);
@@ -48,5 +60,34 @@ describe('TaskFormComponent', () => {
     form.dispatchEvent(new Event('submit'));
 
     expect(savedTask).toEqual({ title: 'Tester le formulaire', priority: 'high' });
+  });
+
+  it('préremplit puis enregistre le formulaire en mode modification', () => {
+    fixture.componentRef.setInput('task', {
+      id: 7,
+      title: 'Ancien titre',
+      priority: 'low',
+      completed: false,
+    });
+    fixture.detectChanges();
+
+    const input: HTMLInputElement = fixture.nativeElement.querySelector('#task');
+    const select: HTMLSelectElement = fixture.nativeElement.querySelector('#priority');
+    const button: HTMLButtonElement = fixture.nativeElement.querySelector('button[type="submit"]');
+    const form: HTMLFormElement = fixture.nativeElement.querySelector('form');
+    let savedTask: TaskDraft | undefined;
+    fixture.componentInstance.taskSaved.subscribe((task) => savedTask = task);
+
+    expect(input.value).toBe('Ancien titre');
+    expect(select.value).toBe('low');
+    expect(button.textContent).toContain('Enregistrer');
+
+    input.value = 'Titre modifié';
+    input.dispatchEvent(new Event('input'));
+    select.value = 'high';
+    select.dispatchEvent(new Event('change'));
+    form.dispatchEvent(new Event('submit'));
+
+    expect(savedTask).toEqual({ title: 'Titre modifié', priority: 'high' });
   });
 });

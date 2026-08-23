@@ -1,14 +1,27 @@
 <!-- Ajoute la classe CSS completed lorsque la tâche est terminée. -->
 <article [class.completed]="task().completed">
-  <label>
+  <label class="task-main">
     <!-- La case reflète completed et émet l'identifiant lorsqu'elle change. -->
-    <input type="checkbox" [checked]="task().completed" (change)="toggled.emit(task().id)">
+    <input class="task-checkbox" type="checkbox" [checked]="task().completed" (change)="toggled.emit(task().id)">
     <!-- Les doubles accolades affichent les valeurs de la tâche. -->
-    {{ task().title }} — priorité : {{ task().priority }}
+    <span class="task-copy">
+      <strong>{{ task().title }}</strong>
+      <span
+        class="priority"
+        [class.priority-low]="task().priority === 'low'"
+        [class.priority-medium]="task().priority === 'medium'"
+        [class.priority-high]="task().priority === 'high'">
+        @switch (task().priority) {
+          @case ('low') { Priorité basse }
+          @case ('medium') { Priorité moyenne }
+          @case ('high') { Priorité haute }
+        }
+      </span>
+    </span>
   </label>
-  <span>
+  <span class="item-actions">
     <!-- Les boutons demandent une action ; AppComponent réalise la modification. -->
-    <button type="button" (click)="editRequested.emit(task().id)">Modifier</button>
-    <button type="button" (click)="deleted.emit(task().id)">Supprimer</button>
+    <button class="edit-button" type="button" (click)="editRequested.emit(task().id)">Modifier</button>
+    <button class="delete-button" type="button" (click)="deleted.emit(task().id)">Supprimer</button>
   </span>
 </article>
