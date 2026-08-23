@@ -1,0 +1,11 @@
+<nav aria-label="Filtrer les tâches">
+  <button type="button" [class.active]="activeFilter() === 'all'" [attr.aria-pressed]="activeFilter() === 'all'" (click)="filterChanged.emit('all')">
+    Toutes
+  </button>
+  <button type="button" [class.active]="activeFilter() === 'active'" [attr.aria-pressed]="activeFilter() === 'active'" (click)="filterChanged.emit('active')">
+    En cours
+  </button>
+  <button type="button" [class.active]="activeFilter() === 'completed'" [attr.aria-pressed]="activeFilter() === 'completed'" (click)="filterChanged.emit('completed')">
+    Terminées
+  </button>
+</nav>

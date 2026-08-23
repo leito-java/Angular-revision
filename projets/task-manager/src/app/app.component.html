@@ -1,0 +1,12 @@
+<main>
+  <!-- Titre et description générale de l'application. -->
+  <h1>Mes tâches</h1>
+  <p>Premier mini-projet du parcours Angular.</p>
+
+  <!-- [task] transmet une donnée ; les parenthèses écoutent les événements. -->
+  <app-task-form [task]="editingTask()" (taskSaved)="saveTask($event)" (cancelled)="editingTask.set(null)" />
+  <!-- Le filtre actif descend ; le nouveau filtre demandé remonte. -->
+  <app-task-filter [activeFilter]="currentFilter()" (filterChanged)="currentFilter.set($event)" />
+  <!-- La liste reçoit les tâches et remonte les trois actions au composant parent. -->
+  <app-task-list [tasks]="filteredTasks()" (toggled)="toggleTask($event)" (deleted)="deleteTask($event)" (editRequested)="editTask($event)" />
+</main>

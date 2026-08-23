@@ -1,0 +1,30 @@
+<!-- Relie le formulaire HTML au FormGroup TypeScript et intercepte sa soumission. -->
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <!-- Le titre change selon le mode création ou modification. -->
+  <h2>{{ task() ? 'Modifier la tâche' : 'Nouvelle tâche' }}</h2>
+
+  <!-- formControlName relie cet input au contrôle title. -->
+  <label for="task">Titre</label>
+  <input id="task" type="text" formControlName="title" placeholder="Ex. Étudier les composants" aria-describedby="title-error">
+  <!-- Ce bloc apparaît seulement lorsque la fonction autorise l'affichage de l'erreur. -->
+  @if (shouldShowError('title')) {
+    <p id="title-error" class="error">
+      @if (form.controls.title.hasError('required')) { Le titre est obligatoire. }
+      @if (form.controls.title.hasError('minlength')) { Le titre doit contenir au moins 3 caractères. }
+    </p>
+  }
+
+  <!-- Ce select est relié au contrôle priority. -->
+  <label for="priority">Priorité</label>
+  <select id="priority" formControlName="priority">
+    <option value="low">Basse</option>
+    <option value="medium">Moyenne</option>
+    <option value="high">Haute</option>
+  </select>
+
+  <!-- Le bouton principal reste désactivé tant que le formulaire est invalide. -->
+  <div class="actions">
+    <button type="submit" [disabled]="form.invalid">{{ task() ? 'Enregistrer' : 'Ajouter' }}</button>
+    @if (task()) { <button type="button" (click)="cancel()">Annuler</button> }
+  </div>
+</form>

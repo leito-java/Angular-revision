@@ -1,0 +1,14 @@
+<!-- Ajoute la classe CSS completed lorsque la tâche est terminée. -->
+<article [class.completed]="task().completed">
+  <label>
+    <!-- La case reflète completed et émet l'identifiant lorsqu'elle change. -->
+    <input type="checkbox" [checked]="task().completed" (change)="toggled.emit(task().id)">
+    <!-- Les doubles accolades affichent les valeurs de la tâche. -->
+    {{ task().title }} — priorité : {{ task().priority }}
+  </label>
+  <span>
+    <!-- Les boutons demandent une action ; AppComponent réalise la modification. -->
+    <button type="button" (click)="editRequested.emit(task().id)">Modifier</button>
+    <button type="button" (click)="deleted.emit(task().id)">Supprimer</button>
+  </span>
+</article>

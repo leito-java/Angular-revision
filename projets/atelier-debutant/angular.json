@@ -1,0 +1,46 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "projects": {
+    "atelier-debutant": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "dist/atelier-debutant",
+            "index": "src/index.html",
+            "browser": "src/etape-01/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "tsconfig.app.json",
+            "assets": [],
+            "styles": ["src/styles.css"]
+          },
+          "configurations": {
+            "etape-01": { "browser": "src/etape-01/main.ts", "outputPath": "dist/etape-01" },
+            "etape-02": { "browser": "src/etape-02/main.ts", "outputPath": "dist/etape-02" },
+            "etape-03": { "browser": "src/etape-03/main.ts", "outputPath": "dist/etape-03" },
+            "etape-04": { "browser": "src/etape-04/main.ts", "outputPath": "dist/etape-04" },
+            "etape-05": { "browser": "src/etape-05/main.ts", "outputPath": "dist/etape-05" },
+            "etape-06": { "browser": "src/etape-06/main.ts", "outputPath": "dist/etape-06" }
+          }
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "etape-01": { "buildTarget": "atelier-debutant:build:etape-01" },
+            "etape-02": { "buildTarget": "atelier-debutant:build:etape-02" },
+            "etape-03": { "buildTarget": "atelier-debutant:build:etape-03" },
+            "etape-04": { "buildTarget": "atelier-debutant:build:etape-04" },
+            "etape-05": { "buildTarget": "atelier-debutant:build:etape-05" },
+            "etape-06": { "buildTarget": "atelier-debutant:build:etape-06" }
+          },
+          "defaultConfiguration": "etape-01"
+        }
+      }
+    }
+  }
+}

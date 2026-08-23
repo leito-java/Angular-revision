@@ -1,0 +1,7 @@
+form { display: grid; gap: .5rem; margin: 1.5rem 0; }
+h2 { font-size: 1.1rem; margin: 0; }
+input, select { padding: .6rem; }
+.actions { display: flex; gap: .5rem; }
+button { cursor: pointer; padding: .45rem .7rem; width: fit-content; }
+button:disabled { cursor: not-allowed; opacity: .55; }
+.error { color: #b91c1c; margin: 0; font-size: .9rem; }

@@ -1,0 +1,9 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f8fafc; color: #1e293b; font-family: Arial, sans-serif; }
+main { max-width: 720px; margin: 3rem auto; padding: 1.5rem; background: white; border-radius: .75rem; }
+button, input, select { font: inherit; padding: .55rem .7rem; }
+button { cursor: pointer; }
+.lesson { color: #475569; }
+.task { display: flex; justify-content: space-between; gap: 1rem; padding: .7rem 0; border-bottom: 1px solid #e2e8f0; }
+.completed { color: #64748b; text-decoration: line-through; }
+.error { color: #b91c1c; }

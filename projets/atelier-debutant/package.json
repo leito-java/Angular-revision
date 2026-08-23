@@ -1,0 +1,32 @@
+{
+  "name": "angular-atelier-debutant",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.22.3"
+  },
+  "scripts": {
+    "start:01": "ng serve --configuration etape-01",
+    "start:02": "ng serve --configuration etape-02",
+    "start:03": "ng serve --configuration etape-03",
+    "start:04": "ng serve --configuration etape-04",
+    "start:05": "ng serve --configuration etape-05",
+    "start:06": "ng serve --configuration etape-06",
+    "build:all": "ng build --configuration etape-01 && ng build --configuration etape-02 && ng build --configuration etape-03 && ng build --configuration etape-04 && ng build --configuration etape-05 && ng build --configuration etape-06"
+  },
+  "dependencies": {
+    "@angular/common": "^22.0.0",
+    "@angular/compiler": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/forms": "^22.0.0",
+    "@angular/platform-browser": "^22.0.0",
+    "rxjs": "^7.8.0",
+    "zone.js": "^0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^22.0.0",
+    "@angular/cli": "^22.0.0",
+    "@angular/compiler-cli": "^22.0.0",
+    "typescript": "~6.0.0"
+  }
+}
