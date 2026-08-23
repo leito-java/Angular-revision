@@ -24,7 +24,9 @@ Préparer une application SaaS vendable
 - [x] Reactive Forms et validation
 - [x] Tests unitaires
 - [x] CI avec GitHub Actions
-- [ ] Finaliser, tester puis publier la nouvelle interface graphique
+- [x] Finaliser, tester puis publier la nouvelle interface graphique
+- [x] Conserver la version avec le tag `v0.1-fondations-angular`
+- [ ] Faire passer toutes les évolutions suivantes par une Pull Request
 
 Limite connue : les tâches sont uniquement conservées en mémoire et disparaissent après l'actualisation de la page.
 
@@ -97,4 +99,3 @@ Chaque fonctionnalité importante doit être accompagnée de :
 5. un quiz ;
 6. des tests automatisés ;
 7. une vérification par la CI.
-
