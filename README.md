@@ -84,10 +84,7 @@ ressources/
 
 ## Contribuer
 
-1. Décrivez la version d'Angular et les commandes nécessaires.
-2. Gardez les exemples courts, testables et centrés sur un concept.
-3. Ajoutez un exercice pratique et les pièges éventuels.
-4. Utilisez des branches descriptives, par exemple `docs/reactive-forms`.
+Les changements passent par une branche dédiée, une Pull Request et une CI verte avant fusion. Consultez le [guide de contribution](CONTRIBUTING.md) pour le workflow Git, les conventions de commits, les vérifications et la Definition of Done.
 
 ## Licence
 

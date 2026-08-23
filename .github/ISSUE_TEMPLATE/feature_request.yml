@@ -1,0 +1,39 @@
+name: Proposer une évolution
+description: Proposer une fonctionnalité liée à un besoin utilisateur ou pédagogique.
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: user
+    attributes:
+      label: Utilisateur concerné
+      description: Qui rencontre ce besoin ?
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problème à résoudre
+      description: Décrivez le problème avant de proposer une solution.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Solution proposée
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critères d'acceptation
+      placeholder: |
+        - [ ] Critère 1
+        - [ ] Critère 2
+    validations:
+      required: true
+  - type: textarea
+    id: pedagogy
+    attributes:
+      label: Impact pédagogique
+      description: Indiquez comment cette évolution sera expliquée et testée pour les juniors.
