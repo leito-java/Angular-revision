@@ -10,6 +10,50 @@ permissions:
   contents: read
 
 jobs:
+  conventions:
+    name: Conventions Git
+    runs-on: ubuntu-latest
+    env:
+      HUSKY: 0
+
+    steps:
+      - name: Récupérer tout l'historique Git
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22.22.3
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Installer l'outillage du dépôt
+        run: npm ci
+
+      - name: Vérifier le nom de la branche
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+        run: node tools/validate-branch-name.mjs "$BRANCH_NAME"
+
+      - name: Vérifier les commits de la Pull Request
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: npx commitlint --from "$BASE_SHA" --to "$HEAD_SHA" --verbose
+
+      - name: Vérifier le titre de la Pull Request
+        if: github.event_name == 'pull_request'
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: echo "$PR_TITLE" | npx commitlint
+
+      - name: Vérifier le dernier commit après fusion
+        if: github.event_name == 'push'
+        run: npx commitlint --last --verbose
+
   task-manager:
     name: Tests et build du Task Manager
     runs-on: ubuntu-latest
