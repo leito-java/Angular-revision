@@ -149,6 +149,8 @@ npm start
 - je sais afficher chargement, erreur et liste vide ;
 - je peux tester un appel HTTP sans démarrer Java.
 
+Passez ensuite à l'étape [Faire évoluer un contrat Angular/Java](../10-contrat-api/README.md).
+
 ## Sources officielles
 
 - [Angular — HTTP Client](https://angular.dev/guide/http)

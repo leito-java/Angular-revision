@@ -18,8 +18,10 @@ export class TaskStore {
   readonly loading = this.loadingState.asReadonly();
   readonly error = this.errorState.asReadonly();
   readonly taskCount = computed(() => this.tasks().length);
-  readonly completedTaskCount = computed(() => this.tasks().filter((task) => task.completed).length);
-  readonly remainingTaskCount = computed(() => this.taskCount() - this.completedTaskCount());
+  readonly todoTaskCount = computed(() => this.tasks().filter((task) => task.status === 'todo').length);
+  readonly inProgressTaskCount = computed(() => this.tasks().filter((task) => task.status === 'in-progress').length);
+  readonly completedTaskCount = computed(() => this.tasks().filter((task) => task.status === 'done').length);
+  readonly remainingTaskCount = computed(() => this.todoTaskCount() + this.inProgressTaskCount());
 
   constructor() {
     this.loadTasks();
@@ -56,21 +58,23 @@ export class TaskStore {
     const current = this.taskById(id);
     if (!current) return throwError(() => new Error(`Tâche ${id} introuvable`));
     this.clearError();
-    return this.api.updateTask(id, { ...draft, completed: current.completed }).pipe(
+    return this.api.updateTask(id, draft).pipe(
       tap((task) => this.replaceTask(task)),
       catchError((error: unknown) => this.propagateError(error)),
     );
   }
 
-  /** Inverse l'état terminé/non terminé. */
+  /** Termine une tâche, ou la replace à faire lorsqu'elle était terminée. */
   toggleTask(id: number): void {
     const current = this.taskById(id);
     if (!current) return;
     this.clearError();
     this.api.updateTask(id, {
       title: current.title,
+      description: current.description,
       priority: current.priority,
-      completed: !current.completed,
+      status: current.status === 'done' ? 'todo' : 'done',
+      dueDate: current.dueDate,
     }).subscribe({
       next: (task) => this.replaceTask(task),
       error: (error: unknown) => this.reportError(error),

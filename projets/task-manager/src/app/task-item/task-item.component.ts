@@ -12,7 +12,7 @@ import { Task } from '../task.model';
 export class TaskItemComponent {
   // Tâche obligatoire reçue de TaskListComponent.
   readonly task = input.required<Task>();
-  // Demande au parent d'inverser l'état completed.
+  // Demande au parent de terminer la tâche ou de la replacer à faire.
   readonly toggled = output<number>();
   // Demande au parent de supprimer la tâche.
   readonly deleted = output<number>();

@@ -36,10 +36,10 @@ npm run build
 - Naviguer entre une page d’accueil, les tâches et une page « À propos » ;
 - Afficher les tâches ;
 - Ajouter une tâche ;
-- Choisir une priorité ;
+- Saisir un titre, une description, une priorité, un statut et une date limite ;
 - Valider le titre avec un formulaire réactif ;
 - Modifier une tâche ;
-- Filtrer les tâches : toutes, en cours ou terminées ;
+- Filtrer les tâches : toutes, à faire, en cours ou terminées ;
 - Marquer une tâche comme terminée ;
 - Supprimer une tâche ;
 - Afficher une page 404 pour une URL inconnue ;
@@ -71,6 +71,7 @@ npm run build
 - lazy loading des pages avec `loadComponent` ;
 - service partagé injecté avec `TaskStore` ;
 - appels REST centralisés avec `TaskApiService` et `HttpClient` ;
+- contrat typé partagé avec l'API : `TaskPriority`, `TaskStatus`, `TaskDraft` et `Task` ;
 - Observables RxJS transformés en état avec des signals ;
 - mises à jour immuables avec `map`, `filter` et l'opérateur `...`.
 - tests de composants avec Vitest et Angular `TestBed` ;
@@ -88,6 +89,6 @@ npm run build
 8. `src/app/task-form/`, `task-list/`, `task-item/` et `task-filter/` restent les composants réutilisables.
 9. `src/app/app.routes.spec.ts` montre comment tester la navigation.
 
-Le code contient des commentaires pédagogiques. Étudiez le [chapitre guidé Routing](../../parcours-debutant/08-routing/README.md), puis le chapitre [HTTP et API](../../parcours-debutant/09-http-api/README.md). Le code Java, Swagger et la base sont documentés dans `java-revision`.
+Le code contient des commentaires pédagogiques. Étudiez le [chapitre guidé Routing](../../parcours-debutant/08-routing/README.md), le chapitre [HTTP et API](../../parcours-debutant/09-http-api/README.md), puis [Faire évoluer un contrat Angular/Java](../../parcours-debutant/10-contrat-api/README.md). Le code Java, Swagger et la base sont documentés dans `java-revision`.
 
 Les fichiers `*.spec.ts` se trouvent à côté du composant testé, conformément au guide de style Angular.

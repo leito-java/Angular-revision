@@ -38,6 +38,7 @@ h2 {
 }
 
 .field-group { display: grid; gap: 8px; }
+.field-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 
 label {
   color: #475467;
@@ -45,8 +46,11 @@ label {
   font-weight: 700;
 }
 
+label span { color: #98a2b3; font-weight: 550; }
+
 input,
-select {
+select,
+textarea {
   width: 100%;
   min-height: 48px;
   padding: 0 14px;
@@ -57,13 +61,22 @@ select {
   transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
-input::placeholder { color: #a0a8b7; }
+textarea {
+  min-height: 108px;
+  padding: 13px 14px;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder { color: #a0a8b7; }
 
 input:hover,
-select:hover { border-color: #c8c3ee; }
+select:hover,
+textarea:hover { border-color: #c8c3ee; }
 
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   border-color: #7c6ee6;
   background: #fff;
   box-shadow: 0 0 0 4px rgb(109 92 231 / 10%);
@@ -114,4 +127,8 @@ button:disabled {
   color: #c2415b;
   font-size: .76rem;
   line-height: 1.4;
+}
+
+@media (max-width: 560px) {
+  .field-row { grid-template-columns: 1fr; }
 }

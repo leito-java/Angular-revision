@@ -10,7 +10,8 @@
 
   <section class="task-summary" aria-label="Résumé">
     <span><strong>{{ store.taskCount() }}</strong> au total</span>
-    <span><strong>{{ store.remainingTaskCount() }}</strong> à faire</span>
+    <span><strong>{{ store.todoTaskCount() }}</strong> à faire</span>
+    <span><strong>{{ store.inProgressTaskCount() }}</strong> en cours</span>
     <span><strong>{{ store.completedTaskCount() }}</strong> terminées</span>
   </section>
 

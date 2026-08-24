@@ -35,3 +35,9 @@
 **Lazy loading** — Chargement du code d'une page seulement au moment où l'utilisateur la demande.
 
 **Observable** — Flux de valeurs asynchrones souvent utilisé avec HTTP et RxJS.
+
+**Contrat API** — Structure publique des requêtes et réponses HTTP partagée entre le frontend et le backend.
+
+**Normalisation** — Transformation d'une saisie vers une forme prévisible, par exemple une chaîne vide vers `null`.
+
+**Source de vérité** — Valeur de référence dont les autres représentations sont calculées, comme `status` pour l'état d'une tâche.

@@ -14,13 +14,14 @@
   <section class="architecture">
     <div>
       <p>Architecture actuelle</p>
-      <h2>Le chemin d’une navigation</h2>
+      <h2>Le chemin d’une tâche</h2>
     </div>
     <ol>
-      <li><strong>1</strong><span>L’utilisateur clique sur un <code>routerLink</code>.</span></li>
-      <li><strong>2</strong><span>Le routeur cherche le chemin dans <code>app.routes.ts</code>.</span></li>
-      <li><strong>3</strong><span>Le composant de page est chargé dans <code>router-outlet</code>.</span></li>
-      <li><strong>4</strong><span>Le <code>TaskStore</code> fournit le même état à toutes les pages.</span></li>
+      <li><strong>1</strong><span>Le formulaire produit un <code>TaskDraft</code> validé et typé.</span></li>
+      <li><strong>2</strong><span>Le <code>TaskStore</code> orchestre l’action et l’état de l’écran.</span></li>
+      <li><strong>3</strong><span><code>TaskApiService</code> envoie la requête HTTP à Spring Boot.</span></li>
+      <li><strong>4</strong><span>Java valide puis persiste la tâche dans PostgreSQL.</span></li>
+      <li><strong>5</strong><span>La réponse remplace la tâche dans le signal et Angular actualise la vue.</span></li>
     </ol>
   </section>
 

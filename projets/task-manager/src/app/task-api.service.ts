@@ -3,9 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Task, TaskDraft } from './task.model';
 
-export interface TaskUpdate extends TaskDraft {
-  completed: boolean;
-}
+export type TaskUpdate = TaskDraft;
 
 /** Unique porte d'entrée HTTP du frontend pour la ressource /api/tasks. */
 @Injectable({ providedIn: 'root' })

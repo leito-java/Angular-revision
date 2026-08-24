@@ -13,6 +13,7 @@ La documentation officielle reste prioritaire en cas de différence avec ce dép
 | Formulaires | [Reactive Forms](https://angular.dev/guide/forms/reactive-forms) |
 | Pages et routing | [Routing](https://angular.dev/guide/routing), [état d’une route](https://angular.dev/guide/routing/read-route-state) et [tests](https://angular.dev/guide/routing/testing) |
 | HTTP et API | [Angular HTTP Client](https://angular.dev/guide/http) et [tests HTTP](https://angular.dev/guide/http/testing) |
+| Contrat Angular/Java | [TypeScript dans Angular](https://angular.dev/guide/components) et [Reactive Forms](https://angular.dev/guide/forms/reactive-forms) |
 | Qualité du code | [Guide de style](https://angular.dev/style-guide) |
 
 ## Règle éditoriale

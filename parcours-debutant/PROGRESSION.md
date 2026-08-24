@@ -12,3 +12,4 @@ Cochez une étape seulement lorsque vous pouvez refaire son petit exemple et l'e
 - [ ] 07 — Je peux expliquer le fonctionnement complet du Task Manager.
 - [ ] 08 — Je sais créer, relier et tester des pages avec le routeur Angular.
 - [ ] 09 — Je sais connecter Angular à une API REST Spring Boot et expliquer le trajet des données.
+- [ ] 10 — Je sais faire évoluer un modèle et son contrat JSON sans créer deux sources de vérité.

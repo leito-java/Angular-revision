@@ -19,9 +19,9 @@ export class TaskListPageComponent {
   // La liste se recalcule quand le store ou le filtre change.
   protected readonly filteredTasks = computed(() => {
     const filter = this.currentFilter();
-    if (filter === 'active') return this.store.tasks().filter((task) => !task.completed);
-    if (filter === 'completed') return this.store.tasks().filter((task) => task.completed);
-    return this.store.tasks();
+    return filter === 'all'
+      ? this.store.tasks()
+      : this.store.tasks().filter((task) => task.status === filter);
   });
 
   protected editTask(id: number): void {
