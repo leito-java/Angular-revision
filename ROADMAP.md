@@ -26,20 +26,20 @@ Préparer une application SaaS vendable
 - [x] CI avec GitHub Actions
 - [x] Finaliser, tester puis publier la nouvelle interface graphique
 - [x] Conserver la version avec le tag `v0.1-fondations-angular`
-- [ ] Faire passer toutes les évolutions suivantes par une Pull Request
+- [x] Faire passer toutes les évolutions suivantes par une Pull Request
 
 Limite connue : les tâches sont uniquement conservées en mémoire et disparaissent après l'actualisation de la page.
 
 ## Version 2 — Pages et routing Angular
 
-- [ ] Créer une mise en page commune et une navigation
-- [ ] Ajouter la page d'accueil
-- [ ] Ajouter la page de liste des tâches
-- [ ] Ajouter les pages de création et de modification
-- [ ] Ajouter une page « À propos » pédagogique
-- [ ] Ajouter une page 404
-- [ ] Utiliser les paramètres de route et le lazy loading
-- [ ] Tester la navigation
+- [x] Créer une mise en page commune et une navigation
+- [x] Ajouter la page d'accueil
+- [x] Ajouter la page de liste des tâches
+- [x] Ajouter les pages de création et de modification
+- [x] Ajouter une page « À propos » pédagogique
+- [x] Ajouter une page 404
+- [x] Utiliser les paramètres de route et le lazy loading
+- [x] Tester la navigation
 
 ## Version 3 — Fonctionnalités avancées du frontend
 

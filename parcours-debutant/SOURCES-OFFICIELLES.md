@@ -11,6 +11,7 @@ La documentation officielle reste prioritaire en cas de différence avec ce dép
 | Inputs/outputs | [Inputs](https://angular.dev/guide/components/inputs) et [outputs](https://angular.dev/guide/components/outputs) |
 | Signals | [Guide des signals](https://angular.dev/guide/signals) |
 | Formulaires | [Reactive Forms](https://angular.dev/guide/forms/reactive-forms) |
+| Pages et routing | [Routing](https://angular.dev/guide/routing), [état d’une route](https://angular.dev/guide/routing/read-route-state) et [tests](https://angular.dev/guide/routing/testing) |
 | Qualité du code | [Guide de style](https://angular.dev/style-guide) |
 
 ## Règle éditoriale
