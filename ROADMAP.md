@@ -60,6 +60,7 @@ Cette version historique utilisait un état en mémoire. La persistance est main
 - [x] Tester les appels avec `HttpTestingController` et un faux service
 - [x] Remplacer H2 par PostgreSQL dans `java-revision`
 - [x] Publier et relier le dépôt `java-revision` sur GitHub
+- [x] Documenter le diagnostic local et la validation Angular → API → PostgreSQL
 
 ## Version 5 — Authentification et autorisation
 

@@ -41,3 +41,13 @@
 **Normalisation** — Transformation d'une saisie vers une forme prévisible, par exemple une chaîne vide vers `null`.
 
 **Source de vérité** — Valeur de référence dont les autres représentations sont calculées, comme `status` pour l'état d'une tâche.
+
+**Proxy de développement** — Intermédiaire qui transfère les requêtes Angular `/api` vers le serveur Java local afin de garder des URL relatives dans le frontend.
+
+**Port** — Numéro qui identifie un service réseau sur une machine, par exemple `4200` pour Angular ou `8080` pour l'API.
+
+**Variable d'environnement** — Valeur fournie au processus au démarrage, utilisée notamment pour configurer une URL ou un secret sans modifier le code.
+
+**Validation full-stack** — Vérification du trajet complet d'une action, depuis l'interface jusqu'à la base de données et retour.
+
+**Cause racine** — Première cause technique expliquant un échec, par opposition au message final qui décrit seulement sa conséquence.

@@ -131,6 +131,8 @@ Terminez avec le [quiz](quiz.md) et les [erreurs fréquentes](mistakes.md).
 - je peux suivre une donnée du formulaire jusqu'à PostgreSQL ;
 - je sais quels tests modifier lorsqu'un contrat évolue.
 
+Terminez l'étape 7 du projet avec la [validation full-stack](../11-validation-full-stack/README.md).
+
 ## Sources officielles
 
 - [Angular — Reactive Forms](https://angular.dev/guide/forms/reactive-forms)
