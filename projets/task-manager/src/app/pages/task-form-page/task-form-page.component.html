@@ -1,0 +1,26 @@
+<section class="form-page">
+  <a class="back-link" routerLink="/tasks"><span aria-hidden="true">←</span> Retour aux tâches</a>
+
+  @if (taskNotFound()) {
+    <section class="not-found-card">
+      <span aria-hidden="true">?</span>
+      <p>Tâche introuvable</p>
+      <h1>Aucune tâche ne correspond à l’identifiant de cette URL.</h1>
+      <a routerLink="/tasks">Revenir à la liste</a>
+    </section>
+  } @else {
+    <header>
+      <p>{{ isEditing() ? 'Route avec paramètre :id' : 'Nouvelle entrée' }}</p>
+      <h1>{{ isEditing() ? 'Modifier une tâche' : 'Planifier une tâche' }}</h1>
+      <span>
+        {{ isEditing()
+          ? 'Le routeur utilise l’identifiant de l’URL pour retrouver la tâche.'
+          : 'Le formulaire possède maintenant sa propre URL partageable.' }}
+      </span>
+    </header>
+
+    <section class="form-card">
+      <app-task-form [task]="task()" (taskSaved)="saveTask($event)" (cancelled)="cancel()" />
+    </section>
+  }
+</section>

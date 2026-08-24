@@ -1,53 +1,33 @@
-<main class="page-shell">
-  <!-- En-tête principal : il présente l'application et résume son état. -->
-  <header class="hero">
-    <div class="hero-copy">
-      <div class="brand-mark" aria-hidden="true">✓</div>
-      <p class="eyebrow">Angular Learning Lab</p>
-      <h1>Organisez votre journée,<br><span>une tâche à la fois.</span></h1>
-      <p class="hero-description">
-        Un gestionnaire simple pour pratiquer les composants, les signals,
-        les formulaires réactifs et les événements Angular.
-      </p>
-    </div>
+<div class="app-shell">
+  <!-- Cette barre est commune à toutes les pages de l'application. -->
+  <header class="topbar">
+    <a class="brand" routerLink="/" aria-label="Accueil TaskFlow">
+      <span class="brand-mark" aria-hidden="true">✓</span>
+      <span>
+        <strong>TaskFlow</strong>
+        <small>Angular Learning Lab</small>
+      </span>
+    </a>
 
-    <section class="stats" aria-label="Résumé des tâches">
-      <article class="stat-card">
-        <span class="stat-value">{{ tasks().length }}</span>
-        <span class="stat-label">Au total</span>
-      </article>
-      <article class="stat-card accent">
-        <span class="stat-value">{{ remainingTaskCount() }}</span>
-        <span class="stat-label">À faire</span>
-      </article>
-      <article class="stat-card success">
-        <span class="stat-value">{{ completedTaskCount() }}</span>
-        <span class="stat-label">Terminées</span>
-      </article>
-    </section>
+    <!-- routerLink navigue sans recharger la page ; routerLinkActive signale le lien courant. -->
+    <nav aria-label="Navigation principale">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">Accueil</a>
+      <a routerLink="/tasks" routerLinkActive="active" ariaCurrentWhenActive="page">
+        Tâches <span class="nav-count">{{ taskCount() }}</span>
+      </a>
+      <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">À propos</a>
+    </nav>
+
+    <a class="new-task-link" routerLink="/tasks/new">Nouvelle tâche <span aria-hidden="true">＋</span></a>
   </header>
 
-  <section class="workspace" aria-label="Gestionnaire de tâches">
-    <aside class="form-panel">
-      <!-- [task] transmet une donnée ; les parenthèses écoutent les événements. -->
-      <app-task-form [task]="editingTask()" (taskSaved)="saveTask($event)" (cancelled)="editingTask.set(null)" />
-    </aside>
+  <!-- Angular remplace le contenu de router-outlet selon l'URL active. -->
+  <main class="route-container">
+    <router-outlet />
+  </main>
 
-    <section class="tasks-panel">
-      <div class="panel-heading">
-        <div>
-          <p class="section-kicker">Votre progression</p>
-          <h2>Liste des tâches</h2>
-        </div>
-        <span class="result-count">{{ filteredTasks().length }} résultat(s)</span>
-      </div>
-
-      <!-- Le filtre actif descend ; le nouveau filtre demandé remonte. -->
-      <app-task-filter [activeFilter]="currentFilter()" (filterChanged)="currentFilter.set($event)" />
-      <!-- La liste reçoit les tâches et remonte les trois actions au composant parent. -->
-      <app-task-list [tasks]="filteredTasks()" (toggled)="toggleTask($event)" (deleted)="deleteTask($event)" (editRequested)="editTask($event)" />
-    </section>
-  </section>
-
-  <footer>Projet pédagogique Angular · Les données sont conservées pendant cette session.</footer>
-</main>
+  <footer>
+    <span>Projet pédagogique Angular 22</span>
+    <span>Les données restent en mémoire pendant cette session.</span>
+  </footer>
+</div>
