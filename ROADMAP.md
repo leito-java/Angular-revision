@@ -53,13 +53,12 @@ Limite connue : les tâches sont uniquement conservées en mémoire et disparais
 
 ## Version 4 — API Java et Spring Boot
 
-- [ ] Créer une API REST Spring Boot
-- [ ] Connecter Angular avec `HttpClient`
-- [ ] Enregistrer les tâches dans PostgreSQL
-- [ ] Valider les données côté serveur
-- [ ] Appliquer une architecture maintenable et les principes SOLID
-- [ ] Documenter l'API avec OpenAPI/Swagger
-- [ ] Ajouter les tests unitaires et d'intégration Java
+- [x] Maintenir l'API REST Spring Boot dans le dépôt séparé `java-revision`
+- [x] Connecter Angular avec `HttpClient`
+- [x] Gérer chargement, erreur réseau et liste vide dans Angular
+- [x] Tester les appels avec `HttpTestingController` et un faux service
+- [ ] Remplacer H2 par PostgreSQL dans `java-revision`
+- [ ] Publier et relier le dépôt `java-revision` sur GitHub
 
 ## Version 5 — Authentification et autorisation
 

@@ -20,11 +20,12 @@ TypeScript essentiel
 → formulaires
 → lecture du projet complet
 → pages et routing
+→ HttpClient et communication avec une API
 ```
 
 Utilisez la [fiche de progression](parcours-debutant/PROGRESSION.md) pour vérifier ce que vous savez réellement expliquer et refaire.
 
-Le dossier [`projets/task-manager`](projets/task-manager/README.md) contient le résultat complet. Un débutant ne doit pas commencer par mémoriser tout son code : il le découvre progressivement à travers le parcours.
+Le dossier [`projets/task-manager`](projets/task-manager/README.md) contient le frontend. L'API Spring Boot et son apprentissage appartiennent au dépôt séparé `java-revision`. Un débutant ne doit pas commencer par mémoriser tout le code : il le découvre progressivement à travers le parcours.
 
 La [feuille de route du Task Manager](ROADMAP.md) conserve les prochaines évolutions prévues, du routing Angular jusqu'à une éventuelle version SaaS.
 
@@ -41,7 +42,7 @@ Les six premières versions exécutables se trouvent dans l'[atelier débutant](
 | 05 | Services et injection | Organisation métier et dependency injection |
 | 06 | [Routage](parcours-debutant/08-routing/README.md) | Routes, paramètres, page 404 et lazy loading |
 | 07 | Formulaires | Template-driven et Reactive Forms |
-| 08 | HTTP et RxJS | HttpClient, observables et intercepteurs |
+| 08 | [HTTP et API](parcours-debutant/09-http-api/README.md) | HttpClient, observables, proxy, chargement et erreurs |
 | 09 | État, tests et performance | Signals, tests unitaires, RxJS et optimisation |
 | 10 | Déploiement | Builds et environnements |
 

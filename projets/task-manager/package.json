@@ -2,7 +2,7 @@
   "name": "angular-task-manager",
   "private": true,
   "scripts": {
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test --no-watch --no-progress",
     "test:watch": "ng test",

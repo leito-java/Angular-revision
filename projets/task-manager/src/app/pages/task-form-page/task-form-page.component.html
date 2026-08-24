@@ -1,7 +1,9 @@
 <section class="form-page">
   <a class="back-link" routerLink="/tasks"><span aria-hidden="true">←</span> Retour aux tâches</a>
 
-  @if (taskNotFound()) {
+  @if (store.loading() && isEditing()) {
+    <section class="status-card" role="status">Chargement de la tâche depuis l'API…</section>
+  } @else if (taskNotFound()) {
     <section class="not-found-card">
       <span aria-hidden="true">?</span>
       <p>Tâche introuvable</p>
@@ -20,7 +22,8 @@
     </header>
 
     <section class="form-card">
-      <app-task-form [task]="task()" (taskSaved)="saveTask($event)" (cancelled)="cancel()" />
+      @if (store.error()) { <p class="save-error" role="alert">{{ store.error() }}</p> }
+      <app-task-form [task]="task()" [busy]="saving()" (taskSaved)="saveTask($event)" (cancelled)="cancel()" />
     </section>
   }
 </section>

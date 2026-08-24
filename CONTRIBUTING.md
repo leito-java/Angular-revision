@@ -131,6 +131,6 @@ Une évolution est terminée uniquement lorsque :
 - [ ] les changements ont été fusionnés dans `main` ;
 - [ ] une version pédagogique stable est marquée par un tag lors d'un jalon important.
 
-## Versions Angular et Java
+## Versions Angular
 
-Indiquez la version utilisée dans les exemples et vérifiez les comportements susceptibles d'avoir évolué dans la documentation officielle.
+Indiquez la version Angular utilisée dans les exemples et vérifiez les comportements susceptibles d'avoir évolué dans la documentation officielle. Les conventions et vérifications Java appartiennent au dépôt séparé `java-revision`.

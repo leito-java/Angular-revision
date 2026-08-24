@@ -23,12 +23,23 @@
       <span class="result-count">{{ filteredTasks().length }} résultat(s)</span>
     </div>
 
-    <app-task-filter [activeFilter]="currentFilter()" (filterChanged)="currentFilter.set($event)" />
-    <app-task-list
-      [tasks]="filteredTasks()"
-      (toggled)="store.toggleTask($event)"
-      (deleted)="store.deleteTask($event)"
-      (editRequested)="editTask($event)"
-    />
+    @if (store.error()) {
+      <div class="api-message error-message" role="alert">
+        <span>{{ store.error() }}</span>
+        <button type="button" (click)="store.loadTasks()">Réessayer</button>
+      </div>
+    }
+
+    @if (store.loading()) {
+      <div class="api-message loading-message" role="status">Chargement des tâches depuis l'API…</div>
+    } @else {
+      <app-task-filter [activeFilter]="currentFilter()" (filterChanged)="currentFilter.set($event)" />
+      <app-task-list
+        [tasks]="filteredTasks()"
+        (toggled)="store.toggleTask($event)"
+        (deleted)="store.deleteTask($event)"
+        (editRequested)="editTask($event)"
+      />
+    }
   </section>
 </section>
