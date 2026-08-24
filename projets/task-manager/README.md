@@ -22,6 +22,8 @@ Puis ouvrez `http://localhost:4200`.
 
 Le script `npm start` utilise `proxy.conf.json` pour transférer `/api` vers Spring Boot sur le port `8080`.
 
+Si PostgreSQL utilise un autre port, par exemple `5433`, cette différence se configure côté Java avec `DB_URL`. Angular continue à appeler `/api` et n'a pas besoin de connaître le port de la base.
+
 ## Vérifier le projet
 
 ```powershell
@@ -89,6 +91,6 @@ npm run build
 8. `src/app/task-form/`, `task-list/`, `task-item/` et `task-filter/` restent les composants réutilisables.
 9. `src/app/app.routes.spec.ts` montre comment tester la navigation.
 
-Le code contient des commentaires pédagogiques. Étudiez le [chapitre guidé Routing](../../parcours-debutant/08-routing/README.md), le chapitre [HTTP et API](../../parcours-debutant/09-http-api/README.md), puis [Faire évoluer un contrat Angular/Java](../../parcours-debutant/10-contrat-api/README.md). Le code Java, Swagger et la base sont documentés dans `java-revision`.
+Le code contient des commentaires pédagogiques. Étudiez le [chapitre guidé Routing](../../parcours-debutant/08-routing/README.md), le chapitre [HTTP et API](../../parcours-debutant/09-http-api/README.md), puis [Faire évoluer un contrat Angular/Java](../../parcours-debutant/10-contrat-api/README.md). Terminez par la [validation full-stack](../../parcours-debutant/11-validation-full-stack/README.md), qui explique comment diagnostiquer et prouver le fonctionnement de toutes les couches. Le code Java, Swagger et la base sont documentés dans `java-revision`.
 
 Les fichiers `*.spec.ts` se trouvent à côté du composant testé, conformément au guide de style Angular.
