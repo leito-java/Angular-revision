@@ -21,6 +21,7 @@ TypeScript essentiel
 → lecture du projet complet
 → pages et routing
 → HttpClient et communication avec une API
+→ évolution du contrat Angular/Java
 ```
 
 Utilisez la [fiche de progression](parcours-debutant/PROGRESSION.md) pour vérifier ce que vous savez réellement expliquer et refaire.
@@ -43,8 +44,9 @@ Les six premières versions exécutables se trouvent dans l'[atelier débutant](
 | 06 | [Routage](parcours-debutant/08-routing/README.md) | Routes, paramètres, page 404 et lazy loading |
 | 07 | Formulaires | Template-driven et Reactive Forms |
 | 08 | [HTTP et API](parcours-debutant/09-http-api/README.md) | HttpClient, observables, proxy, chargement et erreurs |
-| 09 | État, tests et performance | Signals, tests unitaires, RxJS et optimisation |
-| 10 | Déploiement | Builds et environnements |
+| 09 | [Contrat Angular/Java](parcours-debutant/10-contrat-api/README.md) | Modèle enrichi, statuts et compatibilité |
+| 10 | État, tests et performance | Signals, tests unitaires, RxJS et optimisation |
+| 11 | Déploiement | Builds et environnements |
 
 ## Organisation
 

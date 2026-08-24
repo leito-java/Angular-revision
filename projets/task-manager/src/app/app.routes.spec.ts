@@ -12,13 +12,33 @@ import { Task, TaskDraft } from './task.model';
 
 class FakeTaskApiService {
   private readonly tasks: Task[] = [
-    { id: 1, title: 'Lire le chapitre TypeScript', priority: 'medium', completed: true },
-    { id: 2, title: 'Créer mon premier composant Angular', priority: 'high', completed: false },
+    {
+      id: 1,
+      title: 'Lire le chapitre TypeScript',
+      description: null,
+      priority: 'medium',
+      status: 'done',
+      dueDate: null,
+      completed: true,
+    },
+    {
+      id: 2,
+      title: 'Créer mon premier composant Angular',
+      description: 'Découper la page',
+      priority: 'high',
+      status: 'in-progress',
+      dueDate: '2026-09-15',
+      completed: false,
+    },
   ];
 
   getTasks() { return of(this.tasks); }
-  createTask(draft: TaskDraft) { return of({ id: 3, ...draft, completed: false }); }
-  updateTask(id: number, update: TaskUpdate) { return of({ id, ...update }); }
+  createTask(draft: TaskDraft) {
+    return of({ id: 3, ...draft, completed: draft.status === 'done' });
+  }
+  updateTask(id: number, update: TaskUpdate) {
+    return of({ id, ...update, completed: update.status === 'done' });
+  }
   deleteTask() { return of(undefined); }
 }
 

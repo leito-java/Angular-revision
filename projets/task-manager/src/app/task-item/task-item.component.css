@@ -20,7 +20,8 @@ article:hover {
 
 .task-main {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex: 1;
   gap: 13px;
   min-width: 0;
   cursor: pointer;
@@ -29,7 +30,7 @@ article:hover {
 .task-checkbox {
   width: 20px;
   height: 20px;
-  margin: 0;
+  margin: 2px 0 0;
   flex: none;
   accent-color: #6d5ce7;
   cursor: pointer;
@@ -42,15 +43,27 @@ article:hover {
 }
 
 .task-copy strong {
-  overflow: hidden;
   color: #344054;
   font-size: .9rem;
   font-weight: 720;
+  line-height: 1.45;
+}
+
+.task-description {
+  max-width: 620px;
+  overflow: hidden;
+  color: #7a8496;
+  font-size: .76rem;
+  line-height: 1.5;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.priority {
+.task-metadata { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+
+.priority,
+.status,
+.due-date {
   width: fit-content;
   padding: 3px 8px;
   border-radius: 999px;
@@ -58,9 +71,13 @@ article:hover {
   font-weight: 750;
 }
 
+.status-todo { background: #f2f4f7; color: #667085; }
+.status-progress { background: #eef4ff; color: #3659a2; }
+.status-done { background: #e8fbf3; color: #087f5b; }
 .priority-low { background: #edfdf6; color: #087f5b; }
 .priority-medium { background: #fff7e6; color: #b25e09; }
 .priority-high { background: #fff0f2; color: #c43653; }
+.due-date { background: #f5f3ff; color: #6253cf; font-style: normal; }
 
 .item-actions {
   display: flex;
@@ -86,11 +103,14 @@ button {
 
 .completed { background: #fafbfc; }
 .completed .task-copy strong { color: #98a2b3; text-decoration: line-through; }
-.completed .priority { opacity: .62; }
+.completed .priority,
+.completed .task-description,
+.completed .due-date { opacity: .62; }
+.in-progress { border-left: 3px solid #8aa4e8; }
 
 @media (max-width: 560px) {
   article { align-items: flex-start; flex-direction: column; }
   .task-main { width: 100%; }
-  .task-copy strong { white-space: normal; }
+  .task-description { white-space: normal; }
   .item-actions { justify-content: flex-end; width: 100%; }
 }

@@ -18,7 +18,15 @@ describe('TaskApiService', () => {
   afterEach(() => http.verify());
 
   it('charge les tâches avec GET', () => {
-    const expected = [{ id: 1, title: 'Tester HttpClient', priority: 'high' as const, completed: false }];
+    const expected = [{
+      id: 1,
+      title: 'Tester HttpClient',
+      description: 'Intercepter la requête',
+      priority: 'high' as const,
+      status: 'in-progress' as const,
+      dueDate: '2026-09-15',
+      completed: false,
+    }];
 
     service.getTasks().subscribe((tasks) => expect(tasks).toEqual(expected));
 
@@ -28,7 +36,13 @@ describe('TaskApiService', () => {
   });
 
   it('crée une tâche avec POST', () => {
-    const draft = { title: 'Créer une API', priority: 'medium' as const };
+    const draft = {
+      title: 'Créer une API',
+      description: null,
+      priority: 'medium' as const,
+      status: 'todo' as const,
+      dueDate: null,
+    };
 
     service.createTask(draft).subscribe((task) => expect(task.id).toBe(7));
 
@@ -36,6 +50,23 @@ describe('TaskApiService', () => {
     expect(request.request.method).toBe('POST');
     expect(request.request.body).toEqual(draft);
     request.flush({ id: 7, ...draft, completed: false });
+  });
+
+  it('modifie tous les détails d’une tâche avec PUT', () => {
+    const update = {
+      title: 'Finaliser la connexion',
+      description: 'Vérifier le contrat complet',
+      priority: 'high' as const,
+      status: 'done' as const,
+      dueDate: '2026-09-20',
+    };
+
+    service.updateTask(7, update).subscribe((task) => expect(task.completed).toBe(true));
+
+    const request = http.expectOne('/api/tasks/7');
+    expect(request.request.method).toBe('PUT');
+    expect(request.request.body).toEqual(update);
+    request.flush({ id: 7, ...update, completed: true });
   });
 
   it('supprime une tâche avec DELETE', () => {

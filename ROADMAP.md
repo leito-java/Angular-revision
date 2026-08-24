@@ -28,7 +28,7 @@ Préparer une application SaaS vendable
 - [x] Conserver la version avec le tag `v0.1-fondations-angular`
 - [x] Faire passer toutes les évolutions suivantes par une Pull Request
 
-Limite connue : les tâches sont uniquement conservées en mémoire et disparaissent après l'actualisation de la page.
+Cette version historique utilisait un état en mémoire. La persistance est maintenant assurée par l'API Java et PostgreSQL.
 
 ## Version 2 — Pages et routing Angular
 
@@ -43,7 +43,8 @@ Limite connue : les tâches sont uniquement conservées en mémoire et disparais
 
 ## Version 3 — Fonctionnalités avancées du frontend
 
-- [ ] Ajouter une description et une date limite
+- [x] Ajouter une description et une date limite
+- [x] Remplacer l'état binaire par les statuts à faire, en cours et terminé
 - [ ] Ajouter des catégories ou des étiquettes
 - [ ] Ajouter la recherche et le tri
 - [ ] Ajouter la pagination
@@ -57,8 +58,8 @@ Limite connue : les tâches sont uniquement conservées en mémoire et disparais
 - [x] Connecter Angular avec `HttpClient`
 - [x] Gérer chargement, erreur réseau et liste vide dans Angular
 - [x] Tester les appels avec `HttpTestingController` et un faux service
-- [ ] Remplacer H2 par PostgreSQL dans `java-revision`
-- [ ] Publier et relier le dépôt `java-revision` sur GitHub
+- [x] Remplacer H2 par PostgreSQL dans `java-revision`
+- [x] Publier et relier le dépôt `java-revision` sur GitHub
 
 ## Version 5 — Authentification et autorisation
 

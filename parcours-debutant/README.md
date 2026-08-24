@@ -4,7 +4,7 @@ Ce parcours s'adresse à une personne qui ne connaît pas encore Angular. Il pr�
 
 La documentation officielle Angular est notre source de vérité. Ce parcours ne la remplace pas : il la reformule en français simple, sélectionne l'essentiel et ajoute de la pratique.
 
-> Références vérifiées avec Angular 22 le 23 août 2026. Consultez toujours les liens officiels pour vérifier les évolutions du framework.
+> Références vérifiées avec Angular 22 le 24 août 2026. Consultez toujours les liens officiels pour vérifier les évolutions du framework.
 
 ## Comment travailler
 
@@ -30,6 +30,7 @@ Pour chaque étape :
 | 07 | [Projet complet](07-projet-complet/README.md) | Relire et expliquer le gestionnaire de tâches |
 | 08 | [Pages et routing](08-routing/README.md) | Naviguer entre des pages et lire un paramètre d’URL |
 | 09 | [HTTP et API](09-http-api/README.md) | Consommer une API avec HttpClient et gérer l'état de l'écran |
+| 10 | [Contrat Angular/Java](10-contrat-api/README.md) | Faire évoluer les données sans coupler le frontend au backend |
 
 Ne passez pas à l'étape suivante si l'exercice actuel reste incompréhensible. La vitesse compte moins que la compréhension.
 

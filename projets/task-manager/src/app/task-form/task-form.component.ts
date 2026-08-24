@@ -3,7 +3,7 @@ import { Component, effect, input, output, signal } from '@angular/core';
 // Outils des formulaires réactifs et validateurs fournis par Angular.
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 // Types métier utilisés par le formulaire.
-import { Task, TaskDraft, TaskPriority } from '../task.model';
+import { Task, TaskDraft, TaskPriority, TaskStatus } from '../task.model';
 
 // Déclaration du composant standalone responsable du formulaire.
 @Component({
@@ -30,9 +30,18 @@ export class TaskFormComponent {
   // FormGroup rassemble les champs et leurs règles de validation.
   protected readonly form = new FormGroup({
     // Titre obligatoire, non null et composé d'au moins trois caractères.
-    title: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.minLength(3)] }),
+    title: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.minLength(3), Validators.maxLength(120)],
+    }),
+    // Description facultative limitée comme dans le DTO Java.
+    description: new FormControl('', { nonNullable: true, validators: [Validators.maxLength(1000)] }),
     // Priorité toujours définie, avec « medium » comme valeur initiale.
     priority: new FormControl<TaskPriority>('medium', { nonNullable: true }),
+    // Une nouvelle tâche commence dans la colonne « À faire ».
+    status: new FormControl<TaskStatus>('todo', { nonNullable: true }),
+    // Un input date renvoie une chaîne ISO vide lorsqu'aucune date n'est choisie.
+    dueDate: new FormControl('', { nonNullable: true }),
   });
 
   constructor() {
@@ -43,7 +52,13 @@ export class TaskFormComponent {
       // Une nouvelle tâche à éditer réinitialise l'état de soumission.
       this.submitted.set(false);
       // Préremplit le formulaire en édition ou le vide en création.
-      this.form.reset({ title: task?.title ?? '', priority: task?.priority ?? 'medium' });
+      this.form.reset({
+        title: task?.title ?? '',
+        description: task?.description ?? '',
+        priority: task?.priority ?? 'medium',
+        status: task?.status ?? 'todo',
+        dueDate: task?.dueDate ?? '',
+      });
     });
   }
 
@@ -54,15 +69,23 @@ export class TaskFormComponent {
     // Interrompt la méthode si un champ est invalide.
     if (this.form.invalid || this.busy()) return;
     // Transmet au parent les valeurs typées du formulaire.
-    this.taskSaved.emit(this.form.getRawValue());
+    const value = this.form.getRawValue();
+    this.taskSaved.emit({
+      ...value,
+      title: value.title.trim(),
+      description: value.description.trim() || null,
+      dueDate: value.dueDate || null,
+    });
     // Après une création, prépare le formulaire pour une nouvelle tâche.
-    if (!this.task()) this.form.reset({ title: '', priority: 'medium' });
+    if (!this.task()) {
+      this.form.reset({ title: '', description: '', priority: 'medium', status: 'todo', dueDate: '' });
+    }
     // Masque les messages liés à la tentative précédente.
     this.submitted.set(false);
   }
 
   /** Affiche une erreur après visite du champ ou tentative de soumission. */
-  protected shouldShowError(field: 'title'): boolean {
+  protected shouldShowError(field: 'title' | 'description'): boolean {
     // Récupère le contrôle demandé.
     const control = this.form.controls[field];
     // Une erreur apparaît seulement si le champ invalide a déjà été utilisé.

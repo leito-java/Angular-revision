@@ -22,6 +22,6 @@ describe('TaskFilterComponent', () => {
     fixture.componentInstance.filterChanged.subscribe((filter) => selectedFilter = filter);
     const buttons: HTMLButtonElement[] = Array.from(fixture.nativeElement.querySelectorAll('button'));
     buttons.find((button) => button.textContent?.includes('Terminées'))?.click();
-    expect(selectedFilter).toBe('completed');
+    expect(selectedFilter).toBe('done');
   });
 });

@@ -16,11 +16,13 @@ body {
 
 button,
 input,
-select { font: inherit; }
+select,
+textarea { font: inherit; }
 
 button,
 input,
-select { outline: none; }
+select,
+textarea { outline: none; }
 
 :focus-visible {
   outline: 3px solid rgb(109 92 231 / 28%);
