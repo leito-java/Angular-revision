@@ -10,3 +10,4 @@ Cochez une étape seulement lorsque vous pouvez refaire son petit exemple et l'e
 - [ ] 05 — Je sais gérer un état avec des signals.
 - [ ] 06 — Je sais construire un formulaire réactif.
 - [ ] 07 — Je peux expliquer le fonctionnement complet du Task Manager.
+- [ ] 08 — Je sais créer, relier et tester des pages avec le routeur Angular.

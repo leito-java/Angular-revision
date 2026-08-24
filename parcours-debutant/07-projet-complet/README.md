@@ -11,10 +11,11 @@ Quand l'utilisateur ajoute une tâche :
 ```text
 1. TaskFormComponent valide les champs.
 2. Il émet un TaskDraft avec taskSaved.
-3. AppComponent reçoit les données dans saveTask.
-4. AppComponent met à jour le signal tasks.
-5. TaskListComponent reçoit la nouvelle liste.
-6. Angular actualise l'écran.
+3. TaskFormPageComponent reçoit les données dans saveTask.
+4. La page demande à TaskStore de créer la tâche.
+5. TaskStore met à jour son signal privé.
+6. Le routeur revient vers /tasks.
+7. TaskListPageComponent lit la liste actualisée.
 ```
 
 Quand l'utilisateur supprime une tâche :
@@ -22,8 +23,8 @@ Quand l'utilisateur supprime une tâche :
 ```text
 1. TaskItemComponent émet deleted avec l'identifiant.
 2. TaskListComponent retransmet l'événement.
-3. AppComponent exécute deleteTask.
-4. Le signal tasks reçoit un tableau filtré.
+3. TaskListPageComponent demande la suppression à TaskStore.
+4. Le signal privé du store reçoit un tableau filtré.
 5. Angular retire la tâche de l'écran.
 ```
 
@@ -31,12 +32,14 @@ Quand l'utilisateur choisit un filtre :
 
 ```text
 1. TaskFilterComponent émet filterChanged.
-2. AppComponent met à jour le signal currentFilter.
-3. computed recalcule filteredTasks.
+2. TaskListPageComponent met à jour le signal currentFilter.
+3. Son computed recalcule filteredTasks.
 4. TaskListComponent reçoit seulement les tâches correspondantes.
 ```
 
-`computed` représente un état dérivé : il ne stocke pas une deuxième copie de la liste. Il calcule le résultat à partir de `tasks` et `currentFilter`.
+`TaskStore` est la source de vérité partagée par les pages. Son état reste privé : les composants le lisent et demandent une modification par une méthode publique.
+
+`computed` représente un état dérivé : il ne stocke pas une deuxième copie de la liste. Il calcule le résultat à partir des tâches du store et de `currentFilter`.
 
 ## Exercice final
 
@@ -44,10 +47,10 @@ Sans regarder le code, dessinez les composants et les flèches de communication.
 
 ## Questions de validation
 
-- Quel composant possède la liste des tâches ?
+- Quelle classe possède la source de vérité des tâches ?
 - Pourquoi `TaskItemComponent` ne supprime-t-il pas directement une tâche ?
 - Comment le formulaire transmet-il ses données ?
-- Pourquoi `tasks.update` actualise-t-il l'écran ?
+- Pourquoi le signal du store actualise-t-il plusieurs pages ?
 - Où se trouvent les règles de validation ?
 
 ## Projet final
@@ -61,7 +64,7 @@ cd projets\task-manager
 npm start
 ```
 
-Une fois cette étape comprise, vous pouvez continuer avec le routing, les services, HTTP et l'API Spring Boot.
+Une fois cette étape comprise, continuez avec l’[étape 08 — Pages et routing](../08-routing/README.md), puis HTTP et l’API Spring Boot.
 
 ## Sources officielles pour continuer
 

@@ -1,0 +1,28 @@
+<section class="about-page">
+  <header>
+    <p>À propos du laboratoire</p>
+    <h1>Une application conçue pour apprendre en construisant.</h1>
+    <span>TaskFlow relie chaque notion Angular à une fonctionnalité que vous pouvez voir, tester et expliquer.</span>
+  </header>
+
+  <section class="principles">
+    <article><span>01</span><h2>Comprendre</h2><p>Chaque fichier contient des commentaires ciblés et la documentation explique le rôle des API Angular.</p></article>
+    <article><span>02</span><h2>Pratiquer</h2><p>Les exercices vous demandent de reconstruire une petite fonctionnalité avant de lire sa correction.</p></article>
+    <article><span>03</span><h2>Vérifier</h2><p>Les tests automatisés et la CI empêchent une nouvelle étape de casser les acquis précédents.</p></article>
+  </section>
+
+  <section class="architecture">
+    <div>
+      <p>Architecture actuelle</p>
+      <h2>Le chemin d’une navigation</h2>
+    </div>
+    <ol>
+      <li><strong>1</strong><span>L’utilisateur clique sur un <code>routerLink</code>.</span></li>
+      <li><strong>2</strong><span>Le routeur cherche le chemin dans <code>app.routes.ts</code>.</span></li>
+      <li><strong>3</strong><span>Le composant de page est chargé dans <code>router-outlet</code>.</span></li>
+      <li><strong>4</strong><span>Le <code>TaskStore</code> fournit le même état à toutes les pages.</span></li>
+    </ol>
+  </section>
+
+  <a class="cta" routerLink="/tasks">Explorer l’application <span aria-hidden="true">→</span></a>
+</section>

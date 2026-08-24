@@ -28,6 +28,7 @@ Pour chaque étape :
 | 05 | [Signals](05-signals/README.md) | Gérer un état réactif |
 | 06 | [Formulaires](06-formulaires/README.md) | Saisir et valider une tâche |
 | 07 | [Projet complet](07-projet-complet/README.md) | Relire et expliquer le gestionnaire de tâches |
+| 08 | [Pages et routing](08-routing/README.md) | Naviguer entre des pages et lire un paramètre d’URL |
 
 Ne passez pas à l'étape suivante si l'exercice actuel reste incompréhensible. La vitesse compte moins que la compréhension.
 

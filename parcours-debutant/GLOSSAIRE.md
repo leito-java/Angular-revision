@@ -26,4 +26,12 @@
 
 **Routing** — Système qui associe des URL aux pages ou composants de l'application.
 
+**RouterOutlet** — Emplacement du template dans lequel Angular affiche la page correspondant à l'URL active.
+
+**RouterLink** — Directive Angular utilisée pour naviguer vers une route interne sans recharger toute l'application.
+
+**Paramètre de route** — Partie dynamique d'une URL, comme `:id`, qui permet d'identifier la ressource affichée.
+
+**Lazy loading** — Chargement du code d'une page seulement au moment où l'utilisateur la demande.
+
 **Observable** — Flux de valeurs asynchrones souvent utilisé avec HTTP et RxJS.

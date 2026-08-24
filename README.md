@@ -19,6 +19,7 @@ TypeScript essentiel
 → signals
 → formulaires
 → lecture du projet complet
+→ pages et routing
 ```
 
 Utilisez la [fiche de progression](parcours-debutant/PROGRESSION.md) pour vérifier ce que vous savez réellement expliquer et refaire.
@@ -38,7 +39,7 @@ Les six premières versions exécutables se trouvent dans l'[atelier débutant](
 | 03 | Templates | Binding, directives, pipes et contrôle de flux |
 | 04 | Composants | Inputs, outputs, cycle de vie et communication |
 | 05 | Services et injection | Organisation métier et dependency injection |
-| 06 | Routage | Routes, paramètres, guards et lazy loading |
+| 06 | [Routage](parcours-debutant/08-routing/README.md) | Routes, paramètres, page 404 et lazy loading |
 | 07 | Formulaires | Template-driven et Reactive Forms |
 | 08 | HTTP et RxJS | HttpClient, observables et intercepteurs |
 | 09 | État, tests et performance | Signals, tests unitaires, RxJS et optimisation |

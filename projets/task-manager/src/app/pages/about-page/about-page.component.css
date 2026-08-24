@@ -1,0 +1,20 @@
+:host { display: block; }
+.about-page { width: min(980px, calc(100% - 40px)); margin: 0 auto; padding: 60px 0 72px; }
+header { max-width: 760px; }
+header p, .architecture > div p { margin: 0 0 10px; color: #6d5ce7; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+header h1 { margin: 0; color: #172033; font-size: clamp(2.3rem, 6vw, 4.2rem); line-height: 1.04; letter-spacing: -.06em; }
+header > span { display: block; max-width: 680px; margin-top: 20px; color: #737e91; font-size: 1rem; line-height: 1.75; }
+.principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin-top: 44px; }
+.principles article { padding: 25px; border: 1px solid #e4e5ec; border-radius: 19px; background: rgb(255 255 255 / 68%); }
+.principles article > span { color: #6d5ce7; font-size: .68rem; font-weight: 820; }
+.principles h2 { margin: 16px 0 8px; color: #263248; font-size: 1.05rem; }
+.principles p { margin: 0; color: #7a8496; font-size: .8rem; line-height: 1.65; }
+.architecture { display: grid; grid-template-columns: .65fr 1.35fr; gap: 48px; margin-top: 18px; padding: 34px; border: 1px solid #e3e1ef; border-radius: 23px; background: linear-gradient(145deg, rgb(244 242 255 / 88%), rgb(255 255 255 / 72%)); }
+.architecture h2 { margin: 0; color: #263248; font-size: 1.5rem; letter-spacing: -.035em; }
+.architecture ol { display: grid; gap: 11px; margin: 0; padding: 0; list-style: none; }
+.architecture li { display: flex; align-items: center; gap: 12px; color: #657084; font-size: .81rem; }
+.architecture li strong { display: grid; flex: none; place-items: center; width: 31px; height: 31px; border-radius: 9px; background: #fff; color: #6556d4; font-size: .7rem; }
+code { padding: 2px 5px; border-radius: 5px; background: #ebe8fb; color: #5546b8; }
+.cta { display: inline-flex; align-items: center; gap: 9px; margin-top: 25px; padding: 13px 17px; border-radius: 12px; background: #172033; color: #fff; font-size: .79rem; font-weight: 750; text-decoration: none; }
+@media (max-width: 720px) { .principles, .architecture { grid-template-columns: 1fr; } .architecture { gap: 24px; } }
+@media (max-width: 560px) { .about-page { width: min(100% - 24px, 980px); padding-top: 42px; } .principles article, .architecture { padding: 22px; } }
