@@ -19,6 +19,8 @@ import { Task, TaskDraft, TaskPriority } from '../task.model';
 export class TaskFormComponent {
   // Une tâche présente signifie que le formulaire est en mode édition.
   readonly task = input<Task | null>(null);
+  // Empêche une double soumission pendant l'appel HTTP.
+  readonly busy = input(false);
   // Événement envoyé au parent lorsque les données valides doivent être enregistrées.
   readonly taskSaved = output<TaskDraft>();
   // Événement envoyé au parent lorsque l'utilisateur annule la modification.
@@ -50,7 +52,7 @@ export class TaskFormComponent {
     // Indique que l'utilisateur a essayé d'envoyer le formulaire.
     this.submitted.set(true);
     // Interrompt la méthode si un champ est invalide.
-    if (this.form.invalid) return;
+    if (this.form.invalid || this.busy()) return;
     // Transmet au parent les valeurs typées du formulaire.
     this.taskSaved.emit(this.form.getRawValue());
     // Après une création, prépare le formulaire pour une nouvelle tâche.

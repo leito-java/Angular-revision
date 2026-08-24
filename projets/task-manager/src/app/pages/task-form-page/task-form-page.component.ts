@@ -1,6 +1,7 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { finalize } from 'rxjs';
 import { TaskFormComponent } from '../../task-form/task-form.component';
 import { TaskDraft } from '../../task.model';
 import { TaskStore } from '../../task.store';
@@ -14,7 +15,8 @@ import { TaskStore } from '../../task.store';
 export class TaskFormPageComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
-  private readonly store = inject(TaskStore);
+  protected readonly store = inject(TaskStore);
+  protected readonly saving = signal(false);
 
   // toSignal transforme les paramètres Observable du routeur en état réactif.
   private readonly paramMap = toSignal(this.route.paramMap, { initialValue: this.route.snapshot.paramMap });
@@ -29,13 +31,17 @@ export class TaskFormPageComponent {
     const id = this.taskId();
     return id === null ? null : this.store.taskById(id);
   });
-  protected readonly taskNotFound = computed(() => this.isEditing() && this.task() === null);
+  protected readonly taskNotFound = computed(() =>
+    this.isEditing() && !this.store.loading() && this.task() === null,
+  );
 
   protected saveTask(draft: TaskDraft): void {
     const id = this.taskId();
-    if (id === null) this.store.createTask(draft);
-    else if (!this.store.updateTask(id, draft)) return;
-    void this.router.navigate(['/tasks']);
+    const request = id === null ? this.store.createTask(draft) : this.store.updateTask(id, draft);
+    this.saving.set(true);
+    request.pipe(finalize(() => this.saving.set(false))).subscribe({
+      next: () => void this.router.navigate(['/tasks']),
+    });
   }
 
   protected cancel(): void {

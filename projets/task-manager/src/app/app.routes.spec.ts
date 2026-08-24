@@ -1,15 +1,35 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
+import { of } from 'rxjs';
 import { routes } from './app.routes';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { TaskFormPageComponent } from './pages/task-form-page/task-form-page.component';
 import { TaskListPageComponent } from './pages/task-list-page/task-list-page.component';
+import { TaskApiService, TaskUpdate } from './task-api.service';
+import { Task, TaskDraft } from './task.model';
+
+class FakeTaskApiService {
+  private readonly tasks: Task[] = [
+    { id: 1, title: 'Lire le chapitre TypeScript', priority: 'medium', completed: true },
+    { id: 2, title: 'Créer mon premier composant Angular', priority: 'high', completed: false },
+  ];
+
+  getTasks() { return of(this.tasks); }
+  createTask(draft: TaskDraft) { return of({ id: 3, ...draft, completed: false }); }
+  updateTask(id: number, update: TaskUpdate) { return of({ id, ...update }); }
+  deleteTask() { return of(undefined); }
+}
 
 describe('routes', () => {
   beforeEach(() => {
-    TestBed.configureTestingModule({ providers: [provideRouter(routes)] });
+    TestBed.configureTestingModule({
+      providers: [
+        provideRouter(routes),
+        { provide: TaskApiService, useClass: FakeTaskApiService },
+      ],
+    });
   });
 
   it('affiche la page d’accueil pour /', async () => {

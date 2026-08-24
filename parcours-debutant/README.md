@@ -29,6 +29,7 @@ Pour chaque étape :
 | 06 | [Formulaires](06-formulaires/README.md) | Saisir et valider une tâche |
 | 07 | [Projet complet](07-projet-complet/README.md) | Relire et expliquer le gestionnaire de tâches |
 | 08 | [Pages et routing](08-routing/README.md) | Naviguer entre des pages et lire un paramètre d’URL |
+| 09 | [HTTP et API](09-http-api/README.md) | Consommer une API avec HttpClient et gérer l'état de l'écran |
 
 Ne passez pas à l'étape suivante si l'exercice actuel reste incompréhensible. La vitesse compte moins que la compréhension.
 

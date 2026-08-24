@@ -2,6 +2,7 @@ dist/
 .angular/
 coverage/
 node_modules/
+target/
 .npm-cache/
 .idea/
 .vscode/

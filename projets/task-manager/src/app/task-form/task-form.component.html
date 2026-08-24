@@ -34,8 +34,8 @@
 
   <!-- Le bouton principal reste désactivé tant que le formulaire est invalide. -->
   <div class="actions">
-    <button class="primary-button" type="submit" [disabled]="form.invalid">
-      {{ task() ? 'Enregistrer' : 'Ajouter la tâche' }}
+    <button class="primary-button" type="submit" [disabled]="form.invalid || busy()">
+      {{ busy() ? 'Enregistrement…' : (task() ? 'Enregistrer' : 'Ajouter la tâche') }}
       <span aria-hidden="true">→</span>
     </button>
     @if (task()) { <button class="secondary-button" type="button" (click)="cancel()">Annuler</button> }

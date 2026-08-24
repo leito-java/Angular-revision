@@ -15,6 +15,10 @@
 .panel-heading { display: flex; align-items: start; justify-content: space-between; gap: 24px; }
 .panel-heading h2 { margin: 0; color: #172033; font-size: 1.55rem; letter-spacing: -.035em; }
 .result-count { flex: none; padding: 7px 11px; border-radius: 999px; background: #f1efff; color: #6455d9; font-size: .73rem; font-weight: 750; }
+.api-message { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 24px; padding: 15px 17px; border-radius: 13px; font-size: .8rem; line-height: 1.5; }
+.loading-message { justify-content: center; background: #f5f3ff; color: #6253cf; }
+.error-message { border: 1px solid #fecaca; background: #fff1f2; color: #9f1239; }
+.error-message button { flex: none; padding: 8px 11px; border: 0; border-radius: 9px; background: #9f1239; color: #fff; cursor: pointer; font: inherit; font-weight: 750; }
 
 @media (max-width: 620px) {
   .tasks-page { width: min(100% - 24px, 980px); padding-top: 38px; }
