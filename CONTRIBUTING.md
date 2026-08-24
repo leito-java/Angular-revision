@@ -23,6 +23,14 @@ Ne poussez pas de nouvelle fonctionnalité directement sur `main`.
 6. Poussez la branche et ouvrez une Pull Request.
 7. Fusionnez seulement lorsque la CI est verte et la checklist terminée.
 
+Installez une fois l'outillage Git depuis la racine du dépôt :
+
+```cmd
+npm install
+```
+
+Cette commande active les hooks Husky. Avant chaque commit, le nom de la branche est vérifié. Au moment du commit, Commitlint refuse automatiquement un message qui ne respecte pas la convention.
+
 ```bash
 git switch main
 git pull --ff-only origin main
@@ -44,6 +52,10 @@ git push -u origin feat/nom-court
 | `test/` | Ajout ou correction de tests | `test/task-service` |
 | `refactor/` | Restructuration sans changement fonctionnel | `refactor/task-state` |
 | `chore/` | Outils, dépendances ou processus | `chore/professional-workflow` |
+| `ci/` | Workflows d'intégration ou déploiement | `ci/validate-commits` |
+| `build/` | Système de build ou dépendances | `build/update-angular` |
+| `perf/` | Amélioration mesurable des performances | `perf/task-list` |
+| `style/` | Formatage sans changement fonctionnel | `style/format-docs` |
 
 Utilisez des noms courts, en minuscules et séparés par des tirets.
 
@@ -58,9 +70,17 @@ docs: expliquer les paramètres de route
 test: couvrir le mode modification
 refactor: isoler la gestion des tâches
 chore: mettre à jour la configuration CI
+ci: vérifier les noms de branches
+build: mettre à jour Angular
+perf: réduire les recalculs de la liste
+style: uniformiser le formatage
 ```
 
 Un commit doit représenter une intention principale. N'ajoutez pas `.` sans vérifier préalablement les fichiers concernés avec `git status`.
+
+Le titre d'une Pull Request respecte la même convention, car il peut devenir le message final lors d'une fusion par squash.
+
+Les hooks locaux peuvent techniquement être contournés. La CI répète donc les contrôles et constitue la source de vérité avant fusion.
 
 ## Vérifications locales
 

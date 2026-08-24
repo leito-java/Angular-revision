@@ -2,6 +2,7 @@ dist/
 .angular/
 coverage/
 node_modules/
+.npm-cache/
 .idea/
 .vscode/
 .DS_Store

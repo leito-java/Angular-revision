@@ -1,3 +1,5 @@
+> Le titre de la Pull Request doit suivre la forme `type: description`, par exemple `feat: ajouter le routing Angular`.
+
 ## Objectif
 
 Décrivez le problème traité et la valeur apportée aux apprenants ou aux utilisateurs.
