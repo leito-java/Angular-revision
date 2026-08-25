@@ -6,6 +6,10 @@ Un dépôt pédagogique pour comprendre Angular, construire des applications mod
 
 > Les versions d'Angular évoluent vite : indiquez toujours la version utilisée dans chaque exemple ou mini-projet.
 
+## Du cours au produit
+
+Ce dépôt reste consacré à l'apprentissage progressif d'Angular. L'application full-stack destinée au portfolio et à l'évolution produit vit désormais dans le dépôt séparé [`TaskFlow`](https://github.com/leito-java/TaskFlow), qui constitue sa source de vérité.
+
 ## Vous débutez complètement ? Commencez ici
 
 Suivez le [`parcours-debutant`](parcours-debutant/README.md). Il introduit une seule notion à la fois :
@@ -27,7 +31,7 @@ TypeScript essentiel
 
 Utilisez la [fiche de progression](parcours-debutant/PROGRESSION.md) pour vérifier ce que vous savez réellement expliquer et refaire.
 
-Le dossier [`projets/task-manager`](projets/task-manager/README.md) contient le frontend. L'API Spring Boot et son apprentissage appartiennent au dépôt séparé `java-revision`. Un débutant ne doit pas commencer par mémoriser tout le code : il le découvre progressivement à travers le parcours.
+Le dossier [`projets/task-manager`](projets/task-manager/README.md) contient une version pédagogique du frontend. L'API Spring Boot et son apprentissage appartiennent au dépôt séparé `java-revision`. Un débutant ne doit pas commencer par mémoriser tout le code : il le découvre progressivement à travers le parcours.
 
 La [feuille de route du Task Manager](ROADMAP.md) conserve les prochaines évolutions prévues, du routing Angular jusqu'à une éventuelle version SaaS.
 

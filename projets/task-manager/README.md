@@ -2,6 +2,8 @@
 
 Cette application est le résultat pratique des premières étapes Angular. Avant de lire tout son code, suivez le [`parcours-debutant`](../../parcours-debutant/README.md), qui présente chaque notion séparément.
 
+> Cette copie sert à apprendre et à expérimenter. La version produit maintenue pour le portfolio se trouve dans [`TaskFlow`](https://github.com/leito-java/TaskFlow).
+
 ## Démarrer
 
 Lancez d'abord l'API depuis le dépôt séparé `java-revision`, dans un premier terminal :
